@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MeuAppImoveis",
-    "slug": "MeuAppImoveis",
+    "name": "Poundflats",
+    "slug": "Poundflats",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,6 +23,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "assetBundlePatterns": ["**/*"],
+    "plugins": ["expo-router", "expo-asset", "expo-font"]
   }
 }
