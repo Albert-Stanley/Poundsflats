@@ -3,7 +3,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { View, ActivityIndicator } from "react-native";
 import Home from "./src/screens/Home";
-import ExitModal from "./src/screens/ExitModal";
 import { loadFonts } from "./src/styles/fonts";
 
 const Stack = createStackNavigator();
@@ -11,7 +10,6 @@ const Stack = createStackNavigator();
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  // Carregar as fontes antes de renderizar a aplicação
   useEffect(() => {
     const loadAllFonts = async () => {
       await loadFonts();
@@ -22,7 +20,6 @@ export default function App() {
   }, []);
 
   if (!fontsLoaded) {
-    // Mostrar indicador de carregamento enquanto as fontes não estiverem carregadas
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <ActivityIndicator size="large" color="#6200ee" />
@@ -30,7 +27,6 @@ export default function App() {
     );
   }
 
-  // Renderizar a navegação apenas após o carregamento das fontes
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -38,14 +34,6 @@ export default function App() {
           name="Home"
           component={Home}
           options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ExitModal"
-          component={ExitModal}
-          options={{
-            headerShown: false,
-            presentation: "modal", // Apresenta como modal
-          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

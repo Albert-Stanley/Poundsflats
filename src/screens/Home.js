@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import IconButton from "../components/IconButton";
 import colors from "../styles/colors";
+import ExitModal from "../components/ExitModal";
 
 const Home = ({ navigation }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalVisible(!isModalVisible);
+  };
   return (
     <View style={styles.container}>
       {/* Cabeçalho */}
       <View style={styles.header}>
-        <IconButton
-          icon={require("../../assets/icons/back.png")}
-          onPress={() => navigation.navigate("ExitModal")}
-        />
+        {isModalVisible && (
+          <ExitModal
+            navigation={navigation} // Passa a navegação para controle no modal
+          />
+        )}
+        <TouchableOpacity onPress={toggleModal}>
+          <IconButton
+            icon={require("../../assets/icons/back.png")}
+            onPress={toggleModal}
+          />
+        </TouchableOpacity>
         <TouchableOpacity
           style={styles.addContainer}
           onPress={() => console.log("Cadastrar Imóvel")}
