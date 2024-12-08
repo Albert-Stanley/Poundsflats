@@ -5,6 +5,7 @@ import { View, ActivityIndicator } from "react-native";
 import Home from "./src/screens/Home";
 import Form from "./src/screens/Form";
 import { loadFonts } from "./src/styles/fonts";
+import Form2 from "./src/screens/Form2";
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,11 @@ export default function App() {
         <Stack.Screen
           name="Form"
           component={Form}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Form2"
+          component={Form2}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -25,7 +25,7 @@ const Form = ({ navigation }) => {
   };
 
   const handleContinue = () => {
-    navigation.navigate("NextPage");
+    navigation.navigate("Form2");
   };
 
   const handleUFSelect = () => {
