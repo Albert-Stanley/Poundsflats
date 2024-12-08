@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { View, ActivityIndicator } from "react-native";
 import Home from "./src/screens/Home";
+import Form from "./src/screens/Form";
 import { loadFonts } from "./src/styles/fonts";
 
 const Stack = createStackNavigator();
@@ -33,6 +34,11 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Form"
+          component={Form}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

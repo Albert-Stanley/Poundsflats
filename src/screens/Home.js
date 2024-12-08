@@ -17,7 +17,7 @@ const Home = ({ navigation }) => {
       <View style={styles.header}>
         {isModalVisible && (
           <ExitModal
-            navigation={navigation} // Passa a navegação para controle no modal
+            navigation={navigation} // Passa a navegação para o modal
           />
         )}
         <TouchableOpacity onPress={toggleModal}>
@@ -28,7 +28,7 @@ const Home = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.addContainer}
-          onPress={() => console.log("Cadastrar Imóvel")}
+          onPress={() => navigation.navigate("Form")}
         >
           {/* SVG inline no código */}
           <Svg width={32} height={16} viewBox="0 0 16 17" fill="none">
@@ -82,7 +82,7 @@ const Home = ({ navigation }) => {
         {/* Botão para cadastrar imóvel */}
         <TouchableOpacity
           style={styles.primaryButton}
-          onPress={() => console.log("Cadastrar meu primeiro imóvel")}
+          onPress={() => navigation.navigate("Form")}
         >
           <Text style={styles.primaryButtonText}>
             Cadastrar meu primeiro imóvel
@@ -90,7 +90,7 @@ const Home = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      {/* Rodapé */}
+      {/* Rodapé do formulário */}
       <View style={styles.footer}>
         <TouchableOpacity style={styles.footerIcon}>
           <Svg

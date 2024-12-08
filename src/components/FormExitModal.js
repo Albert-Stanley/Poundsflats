@@ -9,19 +9,13 @@ import {
 } from "react-native";
 import colors from "../styles/colors";
 
-const ExitModal = ({ navigation }) => {
+const FormExitModal = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(true);
 
-  const handleExitApp = () => {
-    if (navigation.canGoBack()) {
-      navigation.goBack();
-    } else {
-      navigation.navigate("Home"); // Redireciona para a tela inicial
-    }
-  };
-
-  const handleCloseModal = () => {
+  // Fecha o modal e volta para a tela anterior
+  const handleExitForm = () => {
     setModalVisible(false);
+    navigation.goBack(); // Retorna à tela anterior
   };
 
   return (
@@ -29,23 +23,26 @@ const ExitModal = ({ navigation }) => {
       animationType="slide"
       transparent={true}
       visible={modalVisible}
-      onRequestClose={handleCloseModal}
+      onRequestClose={handleExitForm} // Fecha modal com "voltar" do sistema
     >
-      <TouchableWithoutFeedback onPress={handleCloseModal}>
+      <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
         <View style={styles.overlay}>
           <TouchableWithoutFeedback>
             <View style={styles.modal}>
               <View style={styles.handle} />
-              <Text style={styles.title}>Deseja sair do Poundflats?</Text>
+              <Text style={styles.title}>
+                Deseja abandonar o cadastro do imóvel?{"\n"}
+                Esta operação não será salva.
+              </Text>
               <TouchableOpacity
                 style={[styles.button, styles.exitButton]}
-                onPress={handleExitApp}
+                onPress={handleExitForm}
               >
                 <Text style={styles.exitButtonText}>Sim, sair agora!</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.button, styles.continueButton]}
-                onPress={handleCloseModal}
+                onPress={() => setModalVisible(false)}
               >
                 <Text style={styles.continueButtonText}>
                   Não, quero continuar
@@ -62,8 +59,8 @@ const ExitModal = ({ navigation }) => {
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: "transparent",
-    justifyContent: "flex-end",
+    backgroundColor: "transparent", // Fundo semitransparente
+    justifyContent: "flex-end", // Posiciona o modal no rodapé
   },
   modal: {
     backgroundColor: colors.white,
@@ -74,11 +71,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     height: "28%",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 5,
   },
   handle: {
     width: 40,
@@ -119,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ExitModal;
+export default FormExitModal;
