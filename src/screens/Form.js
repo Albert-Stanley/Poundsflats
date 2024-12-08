@@ -169,7 +169,7 @@ const Form = ({ navigation }) => {
           >
             <View style={styles.ufContent}>
               <Text style={styles.ufText}>
-                {selectedUF ? selectedUF : "Selecione UF"}
+                {selectedUF ? selectedUF : "UF"}
               </Text>
               <Image
                 source={require("../../assets/icons/arrowdown.png")}
