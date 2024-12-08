@@ -4,6 +4,7 @@ const colors = {
   lightGray: "#D6D6D6", // Cinza claro para bordas e fundos'
   background: "#FFFFFF", // Fundo claro para a tela
   fontColor: "#10002B", // Preto
+  borderColor: "#D6D6D6", // Cinza para bordas
   white: "#FFFFFF", // Branco
 };
 

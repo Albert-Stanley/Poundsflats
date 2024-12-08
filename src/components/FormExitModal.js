@@ -6,11 +6,15 @@ import {
   TouchableOpacity,
   Modal,
   TouchableWithoutFeedback,
+  useWindowDimensions,
 } from "react-native";
 import colors from "../styles/colors";
 
 const FormExitModal = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(true);
+
+  // Obtém a altura da tela dinamicamente
+  const { height } = useWindowDimensions();
 
   // Fecha o modal e volta para a tela anterior
   const handleExitForm = () => {
@@ -28,7 +32,12 @@ const FormExitModal = ({ navigation }) => {
       <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
         <View style={styles.overlay}>
           <TouchableWithoutFeedback>
-            <View style={styles.modal}>
+            <View
+              style={[
+                styles.modal,
+                { height: height / 3 }, // Altura do modal proporcional à tela
+              ]}
+            >
               <View style={styles.handle} />
               <Text style={styles.title}>
                 Deseja abandonar o cadastro do imóvel?{"\n"}
@@ -59,7 +68,7 @@ const FormExitModal = ({ navigation }) => {
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: "transparent", // Fundo semitransparente
+    backgroundColor: "trasnparent",
     justifyContent: "flex-end", // Posiciona o modal no rodapé
   },
   modal: {
@@ -70,7 +79,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     alignItems: "center",
     width: "100%",
-    height: "28%",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 5,
   },
   handle: {
     width: 40,
