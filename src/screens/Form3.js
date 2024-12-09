@@ -13,15 +13,15 @@ import colors from "../styles/colors";
 const Form3 = ({ navigation }) => {
   const [amenities, setAmenities] = useState({
     internet: true,
-    airConditioning: true,
-    television: true,
-    cableTv: true,
+    arCondicionado: true,
+    televisao: true,
+    tvACabo: true,
   });
 
   const [permissions, setPermissions] = useState({
-    couples: true,
-    children: true,
-    smokers: true,
+    casais: true,
+    criancas: true,
+    fumantes: true,
     pets: true,
   });
 
@@ -35,13 +35,16 @@ const Form3 = ({ navigation }) => {
 
   const renderSwitch = (isActive, onPress) => (
     <TouchableOpacity onPress={onPress}>
-      <SwitchOff active={isActive} /> {/* Passando estado ativo */}
+      <SwitchOff active={isActive ? "true" : "false"} />
     </TouchableOpacity>
   );
 
+  const handleContinue = () => {
+    navigation.navigate("Form4");
+  };
+
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -53,28 +56,36 @@ const Form3 = ({ navigation }) => {
           Defina as comodidades e permissões do seu Poundsflats
         </Text>
       </View>
-
-      {/* Content */}
       <ScrollView style={styles.scrollView}>
         <Text style={styles.sectionTitle}>Comodidades</Text>
         {Object.entries(amenities).map(([key, value]) => (
           <View key={key} style={styles.toggleContainer}>
-            <Text style={styles.label}>{key.replace(/([A-Z])/g, " $1")}</Text>
+            <Text style={styles.label}>
+              {key
+                .replace(/([A-Z])/g, " $1")
+                .replace("internet", "Internet")
+                .replace("ar Condicionado", "Ar-condicionado")
+                .replace("televisao", "Televisão")}
+            </Text>
             {renderSwitch(value, () => toggleAmenity(key))}
           </View>
         ))}
-
         <Text style={styles.sectionTitle}>Permissões</Text>
         {Object.entries(permissions).map(([key, value]) => (
           <View key={key} style={styles.toggleContainer}>
-            <Text style={styles.label}>{key.replace(/([A-Z])/g, " $1")}</Text>
+            <Text style={styles.label}>
+              {key
+                .replace(/([A-Z])/g, " $1")
+                .replace("casais", "Casais")
+                .replace("criancas", "Crianças")
+                .replace("fumantes", "Fumantes")
+                .replace("pets", "Pets")}
+            </Text>
             {renderSwitch(value, () => togglePermission(key))}
           </View>
         ))}
       </ScrollView>
-
-      {/* Button */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleContinue}>
         <Text style={styles.buttonText}>Continuar</Text>
       </TouchableOpacity>
     </View>
@@ -87,8 +98,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
     padding: 16,
     marginTop: 40,
   },
@@ -99,30 +110,30 @@ const styles = StyleSheet.create({
     fontFamily: "Jura-Regular",
     fontSize: 18,
     color: colors.fontColor,
+    marginTop: 16,
   },
   scrollView: {
     flex: 1,
     paddingHorizontal: 16,
   },
   sectionTitle: {
-    fontFamily: "Jura-Bold",
-    fontSize: 16,
-    color: colors.fontColor,
-    marginTop: 24,
+    fontFamily: "Jura-Regular",
+    fontSize: 18,
+    color: colors.gray,
+    marginTop: 12,
     marginBottom: 8,
   },
   toggleContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.lightGray,
+    paddingVertical: 8, // Espaçamento interno
   },
   label: {
     fontFamily: "Jura-Regular",
-    fontSize: 16,
+    fontSize: 14,
     color: colors.fontColor,
+    marginTop: 0,
   },
   button: {
     backgroundColor: colors.purple,

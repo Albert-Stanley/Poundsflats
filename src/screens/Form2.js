@@ -23,6 +23,10 @@ const Form2 = ({ navigation }) => {
     setShowFullForm(!showFullForm);
   };
 
+  const handleContinue = () => {
+    navigation.navigate("Form3");
+  };
+
   return (
     <View style={styles.container}>
       {/* Cabeçalho */}
@@ -226,7 +230,7 @@ const Form2 = ({ navigation }) => {
       </ScrollView>
 
       {/* Botão Continuar */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleContinue}>
         <Text style={styles.buttonText}>Continuar</Text>
       </TouchableOpacity>
     </View>

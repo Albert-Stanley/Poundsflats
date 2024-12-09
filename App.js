@@ -6,6 +6,8 @@ import Home from "./src/screens/Home";
 import Form from "./src/screens/Form";
 import { loadFonts } from "./src/styles/fonts";
 import Form2 from "./src/screens/Form2";
+import Form3 from "./src/screens/Form3";
+import Form4 from "./src/screens/Form4";
 
 const Stack = createStackNavigator();
 
@@ -48,8 +50,13 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Form8"
+          name="Form3"
           component={Form3}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Form4"
+          component={Form4}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
