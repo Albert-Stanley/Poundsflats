@@ -26,7 +26,6 @@ const Form4 = ({ navigation }) => {
         </View>
       </View>
 
-      {/* Empty space to push buttons to the bottom */}
       <View style={styles.contentFlex} />
 
       {/* Buttons */}
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
     color: colors.fontColor,
   },
   contentFlex: {
-    flex: 1, // Espaço vazio para empurrar os botões para o final da tela
+    flex: 1,
   },
   buttonsContainer: {
     width: "100%",
