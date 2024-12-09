@@ -4,34 +4,6 @@ PoundFlats é uma aplicação mobile criada para facilitar a gestão e configura
 
 ---
 
-Implementação do Deploy e Teste do Aplicativo PoundFlats com Expo Go
-🚀 Passo a Passo para Deploy e Teste no Expo Go
-Passo 1: Baixar o aplicativo Expo Go
-Android: Acesse a Google Play Store e baixe o Expo Go.
-iOS: Acesse a App Store e baixe o Expo Go.
-Passo 2: Acesse o Link de Prévia
-Após instalar o Expo Go, abra o aplicativo no seu dispositivo.
-Use o link abaixo para acessar o projeto PoundFlats:
-Link: Teste o PoundFlats.
-Opções para abrir o projeto no Expo Go
-Colando o Link Manualmente:
-Copie o link.
-No Expo Go, cole-o na barra de pesquisa e pressione Enter.
-Escaneando o QR Code:
-Caso esteja acessando este link no computador, abra o Expo Go no celular.
-Escaneie o QR Code disponível no site.
-Passo 3: Teste o Aplicativo
-Assim que o link for carregado, o aplicativo será exibido no Expo Go. Navegue pelas telas e explore as funcionalidades do app.
-
-Passo 4: Feedback
-Teste as funcionalidades do app, interaja com os componentes e explore a interface.
-Compartilhe seu feedback sobre melhorias ou possíveis ajustes.
-Adicionando ao README.md
-Atualize o README.md com as informações para que outros desenvolvedores ou testers possam acessar o projeto de forma intuitiva. Um exemplo de como pode ser incluído no seu arquivo:
-
-markdown
-Copiar código
-
 ## 📱 Teste o PoundFlats com Expo Go
 
 ### 🛠 Passos para Testar o Aplicativo:
