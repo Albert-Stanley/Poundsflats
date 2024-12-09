@@ -19,12 +19,34 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.alberttheman.Poundflats"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "assetBundlePatterns": ["**/*"],
-    "plugins": ["expo-router", "expo-asset", "expo-font"]
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      "expo-router",
+      "expo-asset",
+      "expo-font"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "2e9ce15f-49e6-4c57-b10d-9eaf51bb2955"
+      }
+    },
+    "owner": "alberttheman",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/2e9ce15f-49e6-4c57-b10d-9eaf51bb2955"
+    }
   }
 }
